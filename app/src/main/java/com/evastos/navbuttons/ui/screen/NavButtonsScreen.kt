@@ -14,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.evastos.navbuttons.ui.animated.AnimationConstants.LongDurationMillis
 import com.evastos.navbuttons.ui.animated.fadeThrough
 import com.evastos.navbuttons.ui.button.NavMenuButton
 import com.evastos.navbuttons.ui.scaffold.NavButtonsScaffold
@@ -25,7 +26,7 @@ fun NavButtonsScreen() {
     AnimatedContent(
         modifier = Modifier,
         targetState = expanded,
-        transitionSpec = fadeThrough()
+        transitionSpec = fadeThrough(durationMillis = LongDurationMillis)
     ) { menuExpanded ->
         NavButtonsScaffold(
             modifier = Modifier,

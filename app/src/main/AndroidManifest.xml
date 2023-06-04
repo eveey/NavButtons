@@ -12,7 +12,7 @@
         android:theme="@style/Theme.NavButtons"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".NavButtonsActivity"
             android:exported="true"
             android:theme="@style/Theme.NavButtons">
             <intent-filter>

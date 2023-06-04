@@ -1,4 +1,4 @@
-package com.evastos.navbuttons.menu
+package com.evastos.navbuttons.ui.menu
 
 sealed interface NavMenuAction
 

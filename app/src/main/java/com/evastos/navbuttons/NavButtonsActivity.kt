@@ -6,8 +6,7 @@ import androidx.activity.compose.setContent
 import com.evastos.navbuttons.ui.screen.NavButtonsScreen
 import com.evastos.navbuttons.ui.theme.NavButtonsTheme
 
-class MainActivity : ComponentActivity() {
-
+class NavButtonsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

@@ -70,7 +70,7 @@ fun NavButtonsScaffold(
             Image(
                 modifier = Modifier
                     .fillMaxSize(),
-                painter = painterResource(id = R.drawable.main_bg),
+                painter = painterResource(id = R.drawable.nav_buttons_background),
                 contentScale = ContentScale.Crop,
                 contentDescription = "Background image"
             )

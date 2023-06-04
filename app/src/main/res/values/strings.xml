@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">NavButtons</string>
+    <string name="app_name" translatable="false">NavButtonsApp</string>
 
     <string name="menu_action_stake" translatable="false">Stake</string>
     <string name="menu_action_send" translatable="false">Send</string>
