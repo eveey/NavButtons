@@ -2,7 +2,9 @@ package com.evastos.navbuttons.ui.scaffold
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
@@ -11,11 +13,15 @@ import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.evastos.navbuttons.R
 import com.evastos.navbuttons.ui.theme.BackgroundBlur
 import com.evastos.navbuttons.ui.theme.NoBlur
 
@@ -42,12 +48,14 @@ fun NavButtonsScaffold(
         topBar = {
             TopAppBar(
                 modifier = modifier
-                    .blur(backgroundBlur)
-                    .systemBarsPadding(),
+                    .systemBarsPadding()
+                    .blur(backgroundBlur),
+                colors = topAppBarColors(
+                    containerColor = Color.Transparent
+                ),
                 title = {
                     Text(
-                        text = title,
-                        textAlign = TextAlign.Center
+                        text = title
                     )
                 }
             )
@@ -55,13 +63,24 @@ fun NavButtonsScaffold(
         floatingActionButton = navMenuButton,
         floatingActionButtonPosition = FabPosition.Center
     ) { padding ->
-        Box(
+        Column(
             modifier = modifier
-                .fillMaxSize()
                 .blur(backgroundBlur)
-                .padding(padding)
         ) {
-            content()
+            Image(
+                modifier = Modifier
+                    .fillMaxSize(),
+                painter = painterResource(id = R.drawable.main_bg),
+                contentScale = ContentScale.Crop,
+                contentDescription = "Background image"
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+            ) {
+                content()
+            }
         }
     }
 }

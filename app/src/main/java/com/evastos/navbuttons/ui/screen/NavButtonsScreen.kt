@@ -4,7 +4,6 @@ package com.evastos.navbuttons.ui.screen
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Menu
@@ -20,17 +19,16 @@ import com.evastos.navbuttons.ui.button.NavMenuButton
 import com.evastos.navbuttons.ui.scaffold.NavButtonsScaffold
 
 @Composable
-fun NavButtonsScreen(
-) {
+fun NavButtonsScreen() {
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     AnimatedContent(
+        modifier = Modifier,
         targetState = expanded,
         transitionSpec = fadeThrough()
     ) { menuExpanded ->
         NavButtonsScaffold(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier,
             title = "Meld",
             navMenuButton = {
                 NavMenuButton(
@@ -39,19 +37,17 @@ fun NavButtonsScreen(
                     } else {
                         NavButtonOpenMenuState
                     },
-                    onClick = { expanded = menuExpanded.not() },
+                    onClick = { expanded = menuExpanded.not() }
                 )
             },
             menuExpanded = menuExpanded
-        ) {
-
-        }
+        ) { }
     }
 }
 
 sealed class NavMenuButtonState(
     val imageVector: ImageVector,
-    val contentDescription: String,
+    val contentDescription: String
 )
 
 object NavButtonOpenMenuState : NavMenuButtonState(

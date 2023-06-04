@@ -5,6 +5,7 @@ import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.core.AnimationConstants.DefaultDurationMillis
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -18,7 +19,7 @@ import androidx.compose.animation.fadeOut
  */
 @OptIn(ExperimentalAnimationApi::class)
 fun fadeThrough(
-    durationMillis: Int = 300
+    durationMillis: Int = DefaultDurationMillis
 ): AnimatedContentScope<Boolean>.() -> ContentTransform {
     return {
         ContentTransform(

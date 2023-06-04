@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">NavButtons</string>
+    <string name="app_name" translatable="false">NavButtons</string>
+
+    <string name="menu_action_stake" translatable="false">Stake</string>
+    <string name="menu_action_send" translatable="false">Send</string>
+    <string name="menu_action_receive" translatable="false">Receive</string>
+    <string name="menu_action_supply" translatable="false">Supply</string>
+    <string name="menu_action_borrow" translatable="false">Borrow</string>
 </resources>

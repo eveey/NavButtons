@@ -23,13 +23,11 @@ android {
     buildTypes {
         debug {
             debuggable true
-
             minifyEnabled false
         }
 
         release {
             debuggable false
-
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -64,18 +62,19 @@ dependencies {
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.runtime:runtime-livedata'
 
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
-    implementation "androidx.activity:activity-compose:$activity_compose_version"
-
     testImplementation "junit:junit:$junit_version"
 
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
+}
+
+detekt {
+    config.setFrom("config/detekt.yml")
+    autoCorrect true
 }
