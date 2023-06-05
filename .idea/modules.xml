@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NavButtonsApp.iml" filepath="$PROJECT_DIR$/.idea/modules/NavButtonsApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NavButtonsApp.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

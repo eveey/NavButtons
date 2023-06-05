@@ -7,22 +7,22 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun NavButtonsTheme(
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val systemUiColor = rememberSystemUiController()
     SideEffect {
         systemUiColor.run {
             setStatusBarColor(
-                color = SystemBars,
-                darkIcons = true
+                color = SystemBarsColor,
+                darkIcons = true,
             )
             setNavigationBarColor(
-                color = SystemBars,
-                darkIcons = true
+                color = SystemBarsColor,
+                darkIcons = true,
             )
         }
     }
     MaterialTheme(
-        content = content
+        content = content,
     )
 }

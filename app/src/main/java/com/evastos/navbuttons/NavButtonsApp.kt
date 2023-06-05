@@ -1,4 +1,7 @@
 package com.evastos.navbuttons
 
-class NavButtonsApp {
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class NavButtonsApp : Application()

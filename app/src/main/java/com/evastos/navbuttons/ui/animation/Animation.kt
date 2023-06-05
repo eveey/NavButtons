@@ -1,4 +1,4 @@
-package com.evastos.navbuttons.ui.animated
+package com.evastos.navbuttons.ui.animation
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
@@ -6,10 +6,8 @@ import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.core.AnimationConstants.DefaultDurationMillis
-import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
-import androidx.compose.animation.core.VectorizedAnimationSpec
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -21,7 +19,7 @@ import androidx.compose.animation.fadeOut
  */
 @OptIn(ExperimentalAnimationApi::class)
 fun fadeThrough(
-    durationMillis: Int = DefaultDurationMillis
+    durationMillis: Int = DefaultDurationMillis,
 ): AnimatedContentScope<Boolean>.() -> ContentTransform {
     return {
         ContentTransform(
@@ -31,8 +29,8 @@ fun fadeThrough(
                     // The duration is 3/8 of the overall duration.
                     durationMillis = durationMillis * 3 / 8,
                     // FastOutLinearInEasing is suitable for elements exiting the screen.
-                    easing = FastOutLinearInEasing
-                )
+                    easing = FastOutLinearInEasing,
+                ),
             ),
             // The target content fades in after the current content fades out.
             targetContentEnter = fadeIn(
@@ -42,15 +40,15 @@ fun fadeThrough(
                     // Delays the EnterTransition by the duration of the ExitTransition.
                     delayMillis = durationMillis * 3 / 8,
                     // LinearOutSlowInEasing is suitable for incoming elements.
-                    easing = LinearOutSlowInEasing
-                )
+                    easing = LinearOutSlowInEasing,
+                ),
             ),
             // The size changes along with the content transition.
             sizeTransform = SizeTransform(
                 sizeAnimationSpec = { _, _ ->
                     tween(durationMillis = durationMillis)
-                }
-            )
+                },
+            ),
         )
     }
 }
@@ -58,4 +56,3 @@ fun fadeThrough(
 object AnimationConstants {
     const val LongDurationMillis: Int = 500
 }
-

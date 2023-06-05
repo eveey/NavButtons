@@ -3,4 +3,4 @@ plugins {
     alias(libs.plugins.version.catalog.update)
 }
 
-apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")
+apply("${project.rootDir}/gradle/toml-updater-config.gradle")
