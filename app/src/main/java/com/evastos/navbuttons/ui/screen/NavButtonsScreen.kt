@@ -19,6 +19,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
@@ -31,9 +32,8 @@ import com.evastos.navbuttons.ui.MenuActions
 import com.evastos.navbuttons.ui.button.NavMenuActionButton
 import com.evastos.navbuttons.ui.button.NavMenuButton
 import com.evastos.navbuttons.ui.theme.BackgroundBlur
+import com.evastos.navbuttons.ui.theme.MinFabSize
 import com.evastos.navbuttons.ui.theme.NoBlur
-import com.evastos.navbuttons.ui.theme.RegularSpacing
-import com.evastos.navbuttons.ui.theme.SmallFabSize
 import kotlin.math.absoluteValue
 
 @Composable
@@ -57,7 +57,7 @@ fun NavButtonsScreen(
     val menuButtonsOffset by menuTransition.animateDp(
         targetValueByState = { isMenuExpanded ->
             if (isMenuExpanded) {
-                SmallFabSize + RegularSpacing
+                MinFabSize
             } else {
                 Dp.Hairline
             }
@@ -110,6 +110,7 @@ fun NavButtonsScreen(
     }
 }
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun NavButtonsMenu(
     menuExpanded: Boolean,
@@ -123,11 +124,11 @@ fun NavButtonsMenu(
     if (menuButtonsOffset.isSpecified) {
         MenuActions.forEachIndexed { index, menuAction ->
             val relativeToMiddle = index - menuButtonsMiddleIndex
-            val xOffset = (menuButtonsOffset * relativeToMiddle).value * xFactor
+            val xOffset = (menuButtonsOffset * relativeToMiddle).value * VELOCITY_X
             val yOffset = if (relativeToMiddle == 0) {
-                -((1 + 1.1 * yFactor) * menuButtonsOffset.value)
+                -((0.1 + 1.1 * VELOCITY_Y) * menuButtonsOffset.value)
             } else {
-                -((1 + yFactor / relativeToMiddle.absoluteValue) * menuButtonsOffset.value)
+                -((0.1 + VELOCITY_Y / relativeToMiddle.absoluteValue) * menuButtonsOffset.value)
             }
             NavMenuActionButton(
                 modifier = Modifier
@@ -136,7 +137,8 @@ fun NavButtonsMenu(
                         y = yOffset.dp
                     ),
                 imageVector = menuAction.icon,
-                contentDescription = stringResource(id = menuAction.action),
+                menuExpanded = menuExpanded,
+                action = stringResource(id = menuAction.action),
                 onClick = {
                     menuButtonVisible = true
                     onMenuActionClick(menuAction)
@@ -156,12 +158,12 @@ fun NavButtonsMenu(
                     Icons.Filled.Menu
                 },
                 contentDescription = if (expanded) {
-                    "Close menu button"
+                    CLOSE_MENU_CONTENT_DESCRIPTION
                 } else {
-                    "Open menu button"
+                    OPEN_MENU_CONTENT_DESCRIPTION
                 },
                 onClick = onMenuButtonClick,
-                onLongPressRelease = {
+                onPressAndRelease = {
                     menuButtonVisible = false
                     onMenuButtonRelease()
                 }
@@ -170,7 +172,10 @@ fun NavButtonsMenu(
     }
 }
 
+private const val OPEN_MENU_CONTENT_DESCRIPTION = "Open menu button"
+private const val CLOSE_MENU_CONTENT_DESCRIPTION = "Close menu button"
+
 private val menuButtonsMiddleIndex = MenuActions.size / 2
 
-private const val xFactor = 1.1
-private const val yFactor = 0.4
+private const val VELOCITY_X = 0.4
+private const val VELOCITY_Y = 0.3

@@ -16,7 +16,9 @@
         <activity
             android:name=".NavButtonsActivity"
             android:exported="true"
-            android:theme="@style/Theme.NavButtons">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NavButtons"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
