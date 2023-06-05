@@ -1,65 +1,63 @@
 package com.evastos.navbuttons.navigation
 
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.evastos.navbuttons.ui.screen.menu.NavButtonsMenuScreen
-import com.evastos.navbuttons.ui.screen.menu.action.BorrowMenuAction
-import com.evastos.navbuttons.ui.screen.menu.action.NavButtonsActionScreen
-import com.evastos.navbuttons.ui.screen.menu.action.ReceiveMenuAction
-import com.evastos.navbuttons.ui.screen.menu.action.SendMenuAction
-import com.evastos.navbuttons.ui.screen.menu.action.StakeMenuAction
-import com.evastos.navbuttons.ui.screen.menu.action.SupplyMenuAction
+import com.evastos.navbuttons.ui.BorrowMenuAction
+import com.evastos.navbuttons.ui.ReceiveMenuAction
+import com.evastos.navbuttons.ui.SendMenuAction
+import com.evastos.navbuttons.ui.StakeMenuAction
+import com.evastos.navbuttons.ui.SupplyMenuAction
+import com.evastos.navbuttons.ui.screen.menu.action.NavButtonsMenuActionText
 
 @Composable
 fun NavButtonsNavHost(
     appState: NavButtonsAppState,
-    modifier: Modifier = Modifier,
-    paddingValues: PaddingValues,
-    startDestination: String = MenuDestination.route,
+    startDestination: String = MenuDestination.route
 ) {
     val navController = appState.navController
+
     NavHost(
         navController = navController,
         startDestination = startDestination,
-        modifier = modifier,
     ) {
-        composable(route = MenuDestination.route) {
-            NavButtonsMenuScreen(
-                modifier = modifier,
+        composable(
+            route = MenuDestination.route
+        ) { }
+        composable(
+            route = StakeDestination.route
+        ) {
+            NavButtonsMenuActionText(
+                action = stringResource(id = StakeMenuAction.action)
             )
         }
-        composable(route = StakeDestination.route) {
-            NavButtonsActionScreen(
-                modifier = modifier.padding(paddingValues),
-                navButtonsMenuAction = StakeMenuAction,
+        composable(
+            route = SendDestination.route
+        ) {
+            NavButtonsMenuActionText(
+                action = stringResource(id = SendMenuAction.action)
             )
         }
-        composable(route = SendDestination.route) {
-            NavButtonsActionScreen(
-                modifier = modifier.padding(paddingValues),
-                navButtonsMenuAction = SendMenuAction,
+        composable(
+            route = ReceiveDestination.route
+        ) {
+            NavButtonsMenuActionText(
+                action = stringResource(id = ReceiveMenuAction.action)
             )
         }
-        composable(route = ReceiveDestination.route) {
-            NavButtonsActionScreen(
-                modifier = modifier.padding(paddingValues),
-                navButtonsMenuAction = ReceiveMenuAction,
+        composable(
+            route = SupplyDestination.route
+        ) {
+            NavButtonsMenuActionText(
+                action = stringResource(id = SupplyMenuAction.action)
             )
         }
-        composable(route = SupplyDestination.route) {
-            NavButtonsActionScreen(
-                modifier = modifier.padding(paddingValues),
-                navButtonsMenuAction = SupplyMenuAction,
-            )
-        }
-        composable(route = BorrowDestination.route) {
-            NavButtonsActionScreen(
-                modifier = modifier.padding(paddingValues),
-                navButtonsMenuAction = BorrowMenuAction,
+        composable(
+            route = BorrowDestination.route
+        ) {
+            NavButtonsMenuActionText(
+                action = stringResource(id = BorrowMenuAction.action)
             )
         }
     }

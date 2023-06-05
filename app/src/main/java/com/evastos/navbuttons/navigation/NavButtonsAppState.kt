@@ -10,17 +10,17 @@ import androidx.navigation.navOptions
 
 @Composable
 fun rememberNavButtonsAppState(
-    navController: NavHostController = rememberNavController(),
+    navController: NavHostController = rememberNavController()
 ) = remember(navController) {
     NavButtonsAppState(navController)
 }
 
 @Stable
 class NavButtonsAppState(
-    val navController: NavHostController,
+    val navController: NavHostController
 ) {
     fun navigateToDestination(
-        navButtonsDestination: NavButtonsDestination,
+        navButtonsDestination: NavButtonsDestination
     ) = navOptions {
         // Pop up to the start destination of the graph to
         // avoid building up a large stack of destinations

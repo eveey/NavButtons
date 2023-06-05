@@ -1,29 +1,29 @@
 package com.evastos.navbuttons.navigation
 
 sealed class NavButtonsDestination(
-    val route: String,
+    val route: String
 )
 
 object MenuDestination : NavButtonsDestination(
-    route = "menu",
+    route = "menu"
 )
 
 object StakeDestination : NavButtonsDestination(
-    route = "menu/stake",
+    route = "menu/stake"
 )
 
 object SendDestination : NavButtonsDestination(
-    route = "menu/send",
+    route = "menu/send"
 )
 
 object ReceiveDestination : NavButtonsDestination(
-    route = "menu/receive",
+    route = "menu/receive"
 )
 
 object SupplyDestination : NavButtonsDestination(
-    route = "menu/supply",
+    route = "menu/supply"
 )
 
 object BorrowDestination : NavButtonsDestination(
-    route = "menu/borrow",
+    route = "menu/borrow"
 )
