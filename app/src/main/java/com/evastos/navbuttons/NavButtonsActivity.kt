@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NavButtonsActivity : ComponentActivity() {
-
     val viewModel: NavButtonsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

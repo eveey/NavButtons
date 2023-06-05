@@ -14,15 +14,15 @@ fun NavButtonsTheme(
         systemUiColor.run {
             setStatusBarColor(
                 color = SystemBarsColor,
-                darkIcons = true,
+                darkIcons = true
             )
             setNavigationBarColor(
                 color = SystemBarsColor,
-                darkIcons = true,
+                darkIcons = true
             )
         }
     }
     MaterialTheme(
-        content = content,
+        content = content
     )
 }
