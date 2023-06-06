@@ -15,8 +15,9 @@ A demo app showcasing an expandable [FAB](https://m2.material.io/components/butt
 
 ### Gesture issue
 - Compose has issues with gesture and pointer detection
-- Would need to implement a hack to support tracking pointer event from one Composable (menu button) to the other (action buttons)
-Possibly related: https://issuetracker.google.com/issues/192479655
+- TBD: implement a hack to support tracking pointer event from one Composable (menu button) to the other (action buttons)
+- Possibly related issues:
+https://issuetracker.google.com/issues/192479655
 https://issuetracker.google.com/issues/192479655
 https://issuetracker.google.com/issues/185228754
 https://issuetracker.google.com/issues/284987363
