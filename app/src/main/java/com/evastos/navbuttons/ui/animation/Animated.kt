@@ -45,7 +45,7 @@ fun <A : Animatable> AnimatedExplosion(
 
     animatables.forEachIndexed { index, animatable ->
         (index - middleIndex).run {
-            val xOffset = (baseOffset * this).value * VELOCITY_X
+            val xOffset = baseOffset.value * this * VELOCITY_X
             val yOffset = if (this == 0) {
                 baseOffset.value.unaryMinus() * (OFFSET_SCALE + 1.1 * VELOCITY_Y)
             } else {
