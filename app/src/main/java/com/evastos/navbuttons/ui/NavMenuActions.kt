@@ -55,12 +55,10 @@ object BorrowNavMenuAction : NavMenuAction {
     override val navDestination = BorrowDestination
 }
 
-val NavMenuActions = arrayListOf<NavMenuAction>(
+val NavMenuActions = arrayListOf(
     StakeNavMenuAction,
     SendNavMenuAction,
     ReceiveNavMenuAction,
     SupplyNavMenuAction,
     BorrowNavMenuAction
 )
-
-val animatableList = NavMenuActions as List<Animatable>
