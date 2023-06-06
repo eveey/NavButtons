@@ -10,7 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.isSpecified
+import androidx.compose.ui.unit.isUnspecified
 import kotlin.math.absoluteValue
 
 @Composable
@@ -37,7 +37,7 @@ fun <A : Animatable> AnimatedExplosion(
         }
     )
 
-    if (baseOffset.isSpecified.not()) {
+    if (baseOffset.isUnspecified) {
         return
     }
 
