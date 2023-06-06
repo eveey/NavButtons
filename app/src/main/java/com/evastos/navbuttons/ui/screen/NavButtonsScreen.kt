@@ -74,7 +74,7 @@ fun NavButtonsScreen(
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
-fun NavButtonsMenu(
+private fun NavButtonsMenu(
     menuExpanded: Boolean,
     menuTransition: Transition<Boolean>,
     onMenuButtonClick: () -> Unit,
