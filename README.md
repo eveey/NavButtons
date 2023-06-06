@@ -1,6 +1,6 @@
 # NavButtonsApp
 
-A demo app showcasing an expandable [FAB](https://m2.material.io/components/buttons-floating-action-button) (Floating Action Button with a Material 2 style), along with an exploding animation and sub-actions in Jetpack Compose.
+Android app showcasing a [Floating Action Button](https://m2.material.io/components/buttons-floating-action-button) with an exploding animation into submenu buttons, done with Jetpack Compose.
 
 ## Framework
 ### 
