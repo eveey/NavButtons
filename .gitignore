@@ -22,5 +22,4 @@ gen/
 .gradle/
 build/
 .idea/
-idea/
 **/.DS_Store
