@@ -24,4 +24,4 @@ A demo app showcasing an expandable [FAB](https://m2.material.io/components/butt
 > Jetpack Compose seems to have issues with gesture and pointer tracking. Need to implement a hack to support tracking pointer event from one Composable (menu button) to the other (action buttons). Potentially related Google issues [192479655](https://issuetracker.google.com/issues/192479655), [192479655](https://issuetracker.google.com/issues/192479655), [185228754](https://issuetracker.google.com/issues/185228754), [284987363](https://issuetracker.google.com/issues/284987363)
 
 ## Demo
-![video_demo](https://github.com/eveey/NavButtons/assets/33784277/1fb86f01-4ef9-4843-869c-de825f522cf7)
+![demo](https://github.com/eveey/NavButtons/assets/33784277/d6924a75-0241-42c7-83cc-34cb5e98262e)
