@@ -5,6 +5,7 @@ A demo app showcasing an expandable [FAB](https://m2.material.io/components/butt
 ## Framework
 ### 
 - Kotlin + Kotlin DSL
+- JDK 17
 - Jetpack Compose
 - Jetpack Navigation
 - Gradle version catalogs
