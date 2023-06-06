@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.evastos.navbuttons.ui.BorrowMenuAction
-import com.evastos.navbuttons.ui.ReceiveMenuAction
-import com.evastos.navbuttons.ui.SendMenuAction
-import com.evastos.navbuttons.ui.StakeMenuAction
-import com.evastos.navbuttons.ui.SupplyMenuAction
+import com.evastos.navbuttons.ui.BorrowNavMenuAction
+import com.evastos.navbuttons.ui.ReceiveNavMenuAction
+import com.evastos.navbuttons.ui.SendNavMenuAction
+import com.evastos.navbuttons.ui.StakeNavMenuAction
+import com.evastos.navbuttons.ui.SupplyNavMenuAction
 import com.evastos.navbuttons.ui.screen.menu.action.NavButtonsMenuActionText
 
 @Composable
@@ -29,35 +29,35 @@ fun NavButtonsNavHost(
             route = StakeDestination.route
         ) {
             NavButtonsMenuActionText(
-                action = stringResource(id = StakeMenuAction.action)
+                action = stringResource(id = StakeNavMenuAction.action)
             )
         }
         composable(
             route = SendDestination.route
         ) {
             NavButtonsMenuActionText(
-                action = stringResource(id = SendMenuAction.action)
+                action = stringResource(id = SendNavMenuAction.action)
             )
         }
         composable(
             route = ReceiveDestination.route
         ) {
             NavButtonsMenuActionText(
-                action = stringResource(id = ReceiveMenuAction.action)
+                action = stringResource(id = ReceiveNavMenuAction.action)
             )
         }
         composable(
             route = SupplyDestination.route
         ) {
             NavButtonsMenuActionText(
-                action = stringResource(id = SupplyMenuAction.action)
+                action = stringResource(id = SupplyNavMenuAction.action)
             )
         }
         composable(
             route = BorrowDestination.route
         ) {
             NavButtonsMenuActionText(
-                action = stringResource(id = BorrowMenuAction.action)
+                action = stringResource(id = BorrowNavMenuAction.action)
             )
         }
     }

@@ -20,7 +20,7 @@ class NavButtonsAppState(
     val navController: NavHostController
 ) {
     fun navigateToDestination(
-        navButtonsDestination: NavButtonsDestination
+        navRouter: NavRouter
     ) = navOptions {
         // Pop up to the start destination of the graph to
         // avoid building up a large stack of destinations
@@ -34,6 +34,6 @@ class NavButtonsAppState(
         // Restore state when re-selecting a previously selected item
         restoreState = true
     }.run {
-        navController.navigate(navButtonsDestination.route, this)
+        navController.navigate(navRouter.navDestination.route, this)
     }
 }

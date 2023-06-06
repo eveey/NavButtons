@@ -1,29 +1,29 @@
 package com.evastos.navbuttons.navigation
 
-sealed class NavButtonsDestination(
+sealed interface NavDestination {
     val route: String
-)
+}
 
-object MenuDestination : NavButtonsDestination(
-    route = "menu"
-)
+object MenuDestination : NavDestination {
+    override val route = "menu"
+}
 
-object StakeDestination : NavButtonsDestination(
-    route = "menu/stake"
-)
+object StakeDestination : NavDestination {
+    override val route = "menu/stake"
+}
 
-object SendDestination : NavButtonsDestination(
-    route = "menu/send"
-)
+object SendDestination : NavDestination {
+    override val route = "menu/send"
+}
 
-object ReceiveDestination : NavButtonsDestination(
-    route = "menu/receive"
-)
+object ReceiveDestination : NavDestination {
+    override val route = "menu/receive"
+}
 
-object SupplyDestination : NavButtonsDestination(
-    route = "menu/supply"
-)
+object SupplyDestination : NavDestination {
+    override val route = "menu/supply"
+}
 
-object BorrowDestination : NavButtonsDestination(
-    route = "menu/borrow"
-)
+object BorrowDestination : NavDestination {
+    override val route = "menu/borrow"
+}
