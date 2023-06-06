@@ -1,6 +1,7 @@
 package com.evastos.navbuttons.ui.animation
 
-import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.Spring.DampingRatioMediumBouncy
+import androidx.compose.animation.core.Spring.StiffnessMediumLow
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.spring
@@ -30,34 +31,37 @@ fun <A : Animatable> AnimatedExplosion(
         label = "explosion animation",
         transitionSpec = {
             spring(
-                dampingRatio = Spring.DampingRatioMediumBouncy,
-                stiffness = Spring.StiffnessMediumLow
+                dampingRatio = DampingRatioMediumBouncy,
+                stiffness = StiffnessMediumLow
             )
         }
     )
 
-    if (baseOffset.isSpecified) {
-        val middleIndex = animatables.size / 2
+    if (baseOffset.isSpecified.not()) {
+        return
+    }
 
-        animatables.forEachIndexed { index, animatable ->
-            val relativeToMiddle = index - middleIndex
-            val xOffset = (baseOffset * relativeToMiddle).value * VELOCITY_X
-            val yOffset = if (relativeToMiddle == 0) {
-                -((0.1 + 1.1 * VELOCITY_Y) * baseOffset.value)
+    val middleIndex = animatables.size / 2
+
+    animatables.forEachIndexed { index, animatable ->
+        (index - middleIndex).run {
+            val xOffset = (baseOffset * this).value * VELOCITY_X
+            val yOffset = if (this == 0) {
+                baseOffset.value.unaryMinus() * (OFFSET_SCALE + 1.1 * VELOCITY_Y)
             } else {
-                -((0.1 + VELOCITY_Y / relativeToMiddle.absoluteValue) * baseOffset.value)
+                baseOffset.value.unaryMinus() * (OFFSET_SCALE + VELOCITY_Y / absoluteValue)
             }
-
+            DpOffset(
+                x = xOffset.dp, y = yOffset.dp
+            )
+        }.run {
             animateComposable(
-                DpOffset(
-                    x = xOffset.dp,
-                    y = yOffset.dp
-                ),
-                animatable
+                this, animatable
             )
         }
     }
 }
 
+private const val OFFSET_SCALE = 0.1
 private const val VELOCITY_X = 0.4
 private const val VELOCITY_Y = 0.3
