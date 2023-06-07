@@ -44,16 +44,19 @@ fun <A : Animatable> AnimatedExplosion(
     val middleIndex = animatables.size / 2
 
     animatables.forEachIndexed { index, animatable ->
-        (index - middleIndex).run {
-            val xOffset = baseOffset.value * this * VELOCITY_X
-            val yOffset = if (this == 0) {
-                baseOffset.value.unaryMinus() * (OFFSET_SCALE + 1.1 * VELOCITY_Y)
-            } else {
-                baseOffset.value.unaryMinus() * (OFFSET_SCALE + VELOCITY_Y / absoluteValue)
+        (index - middleIndex).let { relativePosition ->
+            baseOffset.value.run {
+                val xOffset = this * relativePosition * VELOCITY_X
+                val yOffset = if (relativePosition == 0) {
+                    unaryMinus() * (OFFSET_SCALE + 1.1 * VELOCITY_Y)
+                } else {
+                    unaryMinus() * (OFFSET_SCALE + VELOCITY_Y / relativePosition.absoluteValue)
+                }
+                return@run DpOffset(
+                    x = xOffset.dp,
+                    y = yOffset.dp
+                )
             }
-            DpOffset(
-                x = xOffset.dp, y = yOffset.dp
-            )
         }.run {
             animateComposable(
                 this, animatable

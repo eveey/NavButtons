@@ -10,22 +10,13 @@ import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextMeasurer
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow.Companion.Visible
-import com.evastos.navbuttons.ui.theme.ContentColor
+import com.evastos.navbuttons.extension.drawTopText
 import com.evastos.navbuttons.ui.theme.MinFabSize
 import com.evastos.navbuttons.ui.theme.SmallFabSize
-import com.evastos.navbuttons.ui.theme.SmallSpacing
-import com.evastos.navbuttons.ui.theme.SmallTextSize
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
@@ -49,28 +40,11 @@ fun NavMenuActionButton(
             modifier = modifier
                 .size(SmallFabSize)
                 .align(Alignment.Center)
-                .drawBehind {
-                    if (menuExpanded) {
-                        drawText(
-                            textMeasurer = textMeasurer,
-                            text = action,
-                            size = Size(
-                                SmallFabSize.toPx() + SmallSpacing.toPx(),
-                                SmallTextSize.toPx()
-                            ),
-                            style = TextStyle(
-                                textAlign = TextAlign.Justify,
-                                fontSize = SmallTextSize,
-                                color = ContentColor
-                            ),
-                            topLeft = Offset(
-                                0f,
-                                -SmallTextSize.toPx() - SmallSpacing.toPx()
-                            ),
-                            overflow = Visible
-                        )
-                    }
-                }
+                .drawTopText(
+                    textMeasurer = textMeasurer,
+                    text = action,
+                    enabled = menuExpanded
+                )
                 .clickable {
                     onClick()
                 },
