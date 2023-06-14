@@ -13,7 +13,7 @@ Android app showcasing a [Floating Action Button](https://m2.material.io/compone
 - Detekt, Spotless
 
 ### Architecture (foundation only)
-- ViewModel
+- MVVM, ViewModel
 - DI with Hilt
 
 ### Testing (TBD)
