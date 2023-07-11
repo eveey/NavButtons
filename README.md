@@ -21,7 +21,7 @@ Android app showcasing a [Floating Action Button](https://m2.material.io/compone
 - Espresso
 
 > **Note** 
-> Jetpack Compose seems to have issues with gesture and pointer tracking. Need to implement a hack to support tracking pointer event from one Composable (menu button) to the other (action buttons). Potentially related Google issues [192479655](https://issuetracker.google.com/issues/192479655), [192479655](https://issuetracker.google.com/issues/192479655), [185228754](https://issuetracker.google.com/issues/185228754), [284987363](https://issuetracker.google.com/issues/284987363)
+> Jetpack Compose seems to have issues with gesture and pointer tracking. Need to implement a hack to support tracking pointer events from one Composable (menu button) to the other (action buttons). Potentially related Google issues [192479655](https://issuetracker.google.com/issues/192479655), [192479655](https://issuetracker.google.com/issues/192479655), [185228754](https://issuetracker.google.com/issues/185228754), [284987363](https://issuetracker.google.com/issues/284987363)
 
 ## Demo
-![demo](https://github.com/eveey/NavButtons/assets/33784277/d6924a75-0241-42c7-83cc-34cb5e98262e)
+![demo_nav](https://github.com/eveey/NavButtons/assets/33784277/330902da-2a2f-4dbf-a4e3-b00b675d38b8)
